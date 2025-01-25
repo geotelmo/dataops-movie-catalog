@@ -1,0 +1,47 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore logs
+*.log
+logs/
+
+# Ignore environment files
+.env
+
+# Ignore any development or debug artifacts
+*.swp
+*.swo
+*.bak
+
+# Ignore Docker-specific files
+.dockerignore
+docker-compose.override.yml
+
+# Ignore Git files
+.git
+.gitignore
+
+# Ignore database data (persistent volumes should handle this)
+pgdata/
+
+# Ignore local files in the project directory
+*.sqlite3
+*.db
+
+# Ignore IDE configurations
+.vscode/
+.idea/
+
+# Ignore uploaded files (if applicable)
+uploads/
+
+# Ignore any local testing or temporary files
+tmp/
+temp/
