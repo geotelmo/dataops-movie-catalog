@@ -1,10 +1,24 @@
 version: "3.8"
 
 services:
-  # app:
+  app:
+    build: .
+    container_name: app
+    ports:
+      - "5000:5000"
+    environment:
+      MONGODB_URL: ${MONGODB_URL}
+      MONGODB_DB: ${MONGODB_DB}
+    volumes:
+      - .:/app
+    depends_on:
+      - mongodb
+    networks:
+      - moviecatalog
 
   mongodb:
     image: mongo:latest
+    container_name: mongodb
     environment:
       MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
@@ -17,7 +31,13 @@ services:
     volumes:
       - mongodb_moviecatalog:/data/db
       - ./db/init.sh:/docker-entrypoint-initdb.d/init.sh:ro
+    networks:
+      - moviecatalog
 
 volumes:
   mongodb_moviecatalog:
     driver: local
+
+networks:
+  moviecatalog:
+    driver: bridge
