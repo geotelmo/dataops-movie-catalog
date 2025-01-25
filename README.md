@@ -30,7 +30,7 @@ This project is part of the exercises implemented during the DataOps bootcamp at
     This project uses environment variables to store the API key for the OMDb API. To set the environment variables, create a new copy of the `.env.example` file and name it `.env`. Then, replace the placeholders with your own values.
 
     ```bash
-    docker-compose up --build --env-file .env
+    docker-compose --env-file .env up --build  [ -d ]   # -d flag to run in detached mode
     ```
 
 2. **Terminate the movie-catalog container:**
